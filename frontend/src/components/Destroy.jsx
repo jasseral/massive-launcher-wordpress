@@ -27,9 +27,9 @@ export default function OutlinedButtons() {
   const handleDestroy = () => {
     // Make a request for a user with a given ID
     setOpen(true)
-    axios.get('http://34.122.20.65:3001/terraform/destroy').then(data => {  
+    axios.get('http://134.122.20.65:3001/terraform/destroy').then(data => {  
         setResult1(data.data.stdAppend.toString()) 
-      axios.get('http://34.122.20.65:3001/docker/down').then(data => {  
+      axios.get('http://134.122.20.65:3001/docker/down').then(data => {  
         setOpen(false)
         setResult2(data.data.stdAppend.toString()) 
       })
