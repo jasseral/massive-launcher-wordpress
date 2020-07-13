@@ -58,7 +58,16 @@ export default function OutlinedButtons() {
       var get_ip = data.data.clean.toString()
       setStep(1)
      
-      axios.get(`http://134.122.20.65:3001/ansible/up/${get_ip}`).then(data => {  
+      var params = { "get_ip" : get_ip }
+      params = querystring.stringify(params)
+
+      axios({
+        method: 'POST',
+        url: 'http://134.122.20.65:3001/ansible/up',
+        data: params,
+      })
+      
+      .then(data => {  
         setStep(2)
         setResult2(data.data.stdAppend.toString()) 
         setOpen(false)
