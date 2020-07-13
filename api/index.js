@@ -4,6 +4,7 @@ var path = require('path');
 
 var instanceTerraForm = require('./_modules/interpreter-terraform/instanceTerraForm')
 var instanceDocker = require('./_modules/interpreter-docker/instanceDocker')
+var instanceAnsible = require('./_modules/interpreter-ansible/instanceAnsible')
 
 
 app.use(function(req, res, next) {
@@ -33,6 +34,15 @@ app.get('/terraform/destroy', function (req, res) {
   })
    
 })
+
+app.get('/ansible/up', function (req, res) {
+
+  instanceAnsible._spawnAnsibleProcess('mysql-data',80,'54.165.140.202').then( data =>{
+    res.send(data)
+  })
+  
+})
+
 
 app.get('/docker/up', function (req, res) {
 

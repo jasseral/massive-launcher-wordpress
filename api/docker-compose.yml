@@ -3,7 +3,7 @@ services:
   wordpress:
     image: 'wordpress:php7.2-apache'
     ports:
-      - '8080:80'
+      - '80:80'
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_USER: root
