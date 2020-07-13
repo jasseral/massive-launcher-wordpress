@@ -52,12 +52,12 @@ export default function OutlinedButtons() {
     setshowStepper(true)
     setOpen(true)
     setbuttons(true)
-    axios.get('http://192.168.56.1:3001/terraform/create').then(data => {  
+    axios.get('http://54.165.140.202:3001/terraform/create').then(data => {  
       setResult1(data.data.stdAppend.toString())
       setIp(data.data.clean.toString())
       setStep(1)
      
-      axios.get('http://192.168.56.1:3001/docker/up').then(data => {  
+      axios.get(`http://54.165.140.202:3001/ansible/up/${ip}`).then(data => {  
         setStep(2)
         setResult2(data.data.stdAppend.toString()) 
         setOpen(false)
@@ -66,9 +66,6 @@ export default function OutlinedButtons() {
 
     })
   }
-
-
-
 
   
   return (

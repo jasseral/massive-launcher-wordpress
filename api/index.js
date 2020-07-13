@@ -35,9 +35,10 @@ app.get('/terraform/destroy', function (req, res) {
    
 })
 
-app.get('/ansible/up', function (req, res) {
+app.get('/ansible/up/:ip', function (req, res) {
 
-  instanceAnsible._spawnAnsibleProcess('mysql-data',80,'54.165.140.202').then( data =>{
+  var ip_resource = req.params.ip
+  instanceAnsible._spawnAnsibleProcess('mysql-data',80,ip_resource).then( data =>{
     res.send(data)
   })
   
