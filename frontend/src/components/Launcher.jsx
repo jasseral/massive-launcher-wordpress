@@ -55,9 +55,10 @@ export default function OutlinedButtons() {
     axios.get('http://134.122.20.65:3001/terraform/create').then(data => {  
       setResult1(data.data.stdAppend.toString())
       setIp(data.data.clean.toString())
+      var get_ip = data.data.clean.toString()
       setStep(1)
      
-      axios.get(`http://134.122.20.65:3001/ansible/up/${ip}`).then(data => {  
+      axios.get(`http://134.122.20.65:3001/ansible/up/${get_ip}`).then(data => {  
         setStep(2)
         setResult2(data.data.stdAppend.toString()) 
         setOpen(false)
