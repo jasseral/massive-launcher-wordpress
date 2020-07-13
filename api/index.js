@@ -6,6 +6,9 @@ var instanceTerraForm = require('./_modules/interpreter-terraform/instanceTerraF
 var instanceDocker = require('./_modules/interpreter-docker/instanceDocker')
 var instanceAnsible = require('./_modules/interpreter-ansible/instanceAnsible')
 
+// -------------- MIDDLEWARES ----------------
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*") 
